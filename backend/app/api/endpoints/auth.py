@@ -1,3 +1,4 @@
+# backend/app/api/endpoints/auth.py
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from backend.app.services.auth import authenticate_user, create_access_token
