@@ -1,4 +1,5 @@
-from fastapi import Depends, HTTPException, Request
+# backend/app/services/deps.py
+from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from backend.app.services.auth import decode_token
 
@@ -9,7 +10,7 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
     try:
         payload = decode_token(token)
         return {"id": payload.get("sub"), "username": payload.get("username"), "role": payload.get("role")}
-    except Exception as e:
+    except Exception:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
 
 def require_role(role: str):
