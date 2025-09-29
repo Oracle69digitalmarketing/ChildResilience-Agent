@@ -34,7 +34,7 @@ ChildResilience-Agent enables real-time reporting, classification, and routing o
 ## Installation (Backend)
 
 ```bash
-git clone https://github.com/yourorg/childresilience-agent.git
+git clone https://github.com/Oracle69digitalmarketing/ChildResilience-Agent.git
 cd backend
 python -m venv .venv
 source .venv/bin/activate
