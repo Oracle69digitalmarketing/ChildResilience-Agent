@@ -1,6 +1,14 @@
+# backend/app/main.py
 from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.api.endpoints import report
+
+from backend.app.api.endpoints import (
+    report,
+    shelters,
+    shelters_admin,
+    auth,
+    incidents,
+)
 from backend.app.services import realtime_dashboard
 
 app = FastAPI(
@@ -12,7 +20,7 @@ app = FastAPI(
 # --- CORS setup ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Update in production
+    allow_origins=["*"],  # update in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -20,6 +28,10 @@ app.add_middleware(
 
 # --- API Routes ---
 app.include_router(report.router, prefix="/api")
+app.include_router(shelters.router, prefix="/api")
+app.include_router(shelters_admin.router, prefix="/api")
+app.include_router(auth.router, prefix="/api")
+app.include_router(incidents.router, prefix="/api")
 
 # --- WebSocket Endpoint for Real-time Dashboard ---
 @app.websocket("/ws/dashboard")
