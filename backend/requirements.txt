@@ -1,0 +1,33 @@
+# Core Web Framework
+fastapi==0.109.1
+uvicorn[standard]==0.23.2
+
+# Async & Utilities
+python-dotenv==1.0.1
+httpx==1.2.5
+pydantic==2.2.1
+typing-extensions==4.7.1
+
+# AWS SDK
+boto3==1.30.27
+aiobotocore==2.7.0
+
+# WebSocket support
+websockets==11.0.3
+
+# LLM / Translation
+googletrans==4.0.0rc1
+openai==1.7.3  # if you plan to integrate OpenAI LLM
+
+# Twilio Notifications
+twilio==8.13.0
+
+# Email / SMTP
+aiosmtplib==1.1.6
+
+# Testing
+pytest==8.2.2
+pytest-asyncio==0.21.0
+
+# Media Analysis (AWS Rekognition / Textract)
+# boto3 covers Rekognition & Textract
